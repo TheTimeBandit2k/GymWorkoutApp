@@ -17,16 +17,16 @@ public class DatabaseSeeder {
         System.out.println("Database insertion started...");
         
          Member[] members = {
-            new Member(820, "Alice Smith", "Basic", Date.valueOf("2025-01-15"), Date.valueOf("2026-12-31"), "555-0101", "John"),
-            new Member(821, "Bob Jones", "Premium", Date.valueOf("2025-06-01"), Date.valueOf("2026-05-10"), "555-0102", "Sarah"), // Expiring < 30 days
-            new Member(822, "Charlie Brown", "Annual", Date.valueOf("2026-01-01"), Date.valueOf("2027-01-01"), "555-0103", "John"),
-            new Member(823, "Diana Prince", "Premium", Date.valueOf("2024-11-20"), Date.valueOf("2026-04-28"), "555-0104", "Mike"), // Expiring < 30 days
-            new Member(824, "Evan Wright", "Basic", Date.valueOf("2026-02-14"), Date.valueOf("2027-02-14"), "555-0105", "Sarah"),
-            new Member(825, "Fiona Gallagher", "Annual", Date.valueOf("2023-08-10"), Date.valueOf("2026-08-10"), "555-0106", "John"),
-            new Member(826, "George Miller", "Premium", Date.valueOf("2025-09-01"), Date.valueOf("2026-09-01"), "555-0107", "Mike"),
-            new Member(827, "Hannah Abbott", "Basic", Date.valueOf("2026-03-05"), Date.valueOf("2027-03-05"), "555-0108", "Sarah"),
-            new Member(828, "Ian Malcolm", "Annual", Date.valueOf("2022-05-12"), Date.valueOf("2027-05-12"), "555-0109", "John"),
-            new Member(829, "Julia Roberts", "Premium", Date.valueOf("2025-12-01"), Date.valueOf("2026-12-01"), "555-0110", "Mike")
+            new Member(1, "Dwayne Johnson", "Annual", Date.valueOf("2023-01-01"), Date.valueOf("2027-12-31"), "555-1111", "Arnold"),
+            new Member(2, "Chris Hemsworth", "Premium", Date.valueOf("2024-02-15"), Date.valueOf("2026-05-10"), "555-2222", "Phil Heath"),
+            new Member(3, "Gal Gadot", "Basic", Date.valueOf("2024-03-01"), Date.valueOf("2027-04-01"), "555-3333", "Self"),
+            new Member(4, "Henry Cavill", "Annual", Date.valueOf("2024-01-10"), Date.valueOf("2027-01-09"), "555-4444", "Arnold"),
+            new Member(5, "Brie Larson", "Premium", Date.valueOf("2024-05-01"), Date.valueOf("2026-05-05"), "555-5555", "Phil Heath"),
+            new Member(6, "Alice Smith", "Basic", Date.valueOf("2025-01-15"), Date.valueOf("2026-12-31"), "555-0101", "John"),
+            new Member(7, "Bob Jones", "Premium", Date.valueOf("2025-06-01"), Date.valueOf("2026-05-15"), "555-0102", "Sarah"),
+            new Member(8, "Charlie Brown", "Annual", Date.valueOf("2026-01-01"), Date.valueOf("2027-01-01"), "555-0103", "John"),
+            new Member(9, "Diana Prince", "Premium", Date.valueOf("2024-11-20"), Date.valueOf("2027-04-28"), "555-0104", "Mike"),
+            new Member(10, "Evan Wright", "Basic", Date.valueOf("2026-02-14"), Date.valueOf("2027-02-14"), "555-0105", "Sarah")
         };
          
          for (Member m : members) {
@@ -34,16 +34,16 @@ public class DatabaseSeeder {
          }
          
          WorkoutLog[] logs = {
-            new WorkoutLog(1, 820, Date.valueOf("2026-04-18"), "Treadmill", 45, 400, "Medium"),
-            new WorkoutLog(2, 820, Date.valueOf("2026-04-19"), "Weightlifting", 60, 550, "High"), // > 500 Calories
-            new WorkoutLog(3, 821, Date.valueOf("2026-04-15"), "Cycling", 30, 300, "Low"),
-            new WorkoutLog(4, 822, Date.valueOf("2026-04-20"), "Rowing", 50, 600, "High"), // > 500 Calories
-            new WorkoutLog(5, 823, Date.valueOf("2026-04-10"), "Yoga", 60, 200, "Low"),
-            new WorkoutLog(6, 824, Date.valueOf("2026-04-12"), "Elliptical", 40, 450, "Medium"),
-            new WorkoutLog(7, 825, Date.valueOf("2026-04-16"), "HIIT", 30, 520, "High"), // > 500 Calories
-            new WorkoutLog(8, 826, Date.valueOf("2026-04-17"), "Stairmaster", 20, 250, "Medium"),
-            new WorkoutLog(9, 827, Date.valueOf("2026-04-14"), "Swimming", 45, 480, "High"),
-            new WorkoutLog(10, 828, Date.valueOf("2026-04-19"), "Treadmill", 60, 650, "High") // > 500 Calories
+            new WorkoutLog(101, 1, Date.valueOf("2026-04-10"), "Deadlift", 60, 500, "High"),
+            new WorkoutLog(102, 2, Date.valueOf("2026-04-10"), "Shoulder Press", 45, 350, "Medium"),
+            new WorkoutLog(103, 3, Date.valueOf("2026-04-11"), "Yoga", 30, 150, "Low"),
+            new WorkoutLog(104, 4, Date.valueOf("2026-04-11"), "Squats", 50, 450, "High"),
+            new WorkoutLog(105, 5, Date.valueOf("2026-04-12"), "Running", 40, 400, "Medium"),
+            new WorkoutLog(106, 6, Date.valueOf("2026-04-18"), "Treadmill", 45, 400, "Medium"),
+            new WorkoutLog(107, 7, Date.valueOf("2026-04-19"), "Weightlifting", 60, 550, "High"), 
+            new WorkoutLog(108, 8, Date.valueOf("2026-04-15"), "Cycling", 30, 300, "Low"),
+            new WorkoutLog(109, 9, Date.valueOf("2026-04-20"), "Rowing", 50, 600, "High"), 
+            new WorkoutLog(110, 10, Date.valueOf("2026-04-10"), "Yoga", 60, 200, "Low")
         };
          
          for (WorkoutLog w : logs) {
@@ -72,7 +72,7 @@ public class DatabaseSeeder {
          }
          
          System.out.println("Case 3");
-         List<WorkoutLog> retrievedLogs = logDAO.getLogbyMemberID(820);
+         List<WorkoutLog> retrievedLogs = logDAO.getLogbyMemberID(4);
          
          for (WorkoutLog log : retrievedLogs) {
              System.out.println(log.toString());
@@ -86,9 +86,9 @@ public class DatabaseSeeder {
          }
          
          System.out.println("Case 5");
-         mDAO.updateMembershipType(820, "Premium");
+         mDAO.updateMembershipType(6, "Premium");
          
          System.out.println("Case 6");
-         logDAO.updateWorkoutDuration(1, 60);
+         logDAO.updateWorkoutDuration(108, 45);
     }
 }

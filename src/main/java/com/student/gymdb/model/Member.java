@@ -53,6 +53,6 @@ public class Member {
     // toString() override to make my debugging easier 
     @Override
     public String toString() {
-        return "Member: " + fullName + " (" + membershipType + ") ";
+        return "ID: " + memberID + " | Member: " + fullName + " (" + membershipType + ") ";
     }
 }

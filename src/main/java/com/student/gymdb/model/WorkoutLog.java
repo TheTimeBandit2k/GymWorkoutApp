@@ -53,6 +53,6 @@ public class WorkoutLog {
     // Same toString() override as in Members.java
     @Override
     public String toString() {
-        return exerciseName + " for " + duration + " mins. (" + caloriesBurned + " cal)";
+        return"Log ID: " + logID + " | " + exerciseName + " for " + duration + " mins. (" + caloriesBurned + " cal)";
     }
 }
